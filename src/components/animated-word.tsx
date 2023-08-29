@@ -42,7 +42,7 @@ export const AnimatedTextWord: FC<AnimatedTextWordProps> = ({ text, className })
     return (
         <motion.div
             className={`mb-3 ${className}`}
-            style={{ display: "flex", fontSize: "2rem" }}
+            style={{ display: "flex" }}
             variants={container}
             initial="hidden"
             animate="visible"
