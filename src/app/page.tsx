@@ -1,82 +1,18 @@
-'use client'
-import Image from 'next/image';
-import {motion} from "framer-motion";
-import Particles from "react-particles"
-import {useCallback} from "react";
-import type {Engine} from "tsparticles-engine";
-import {ISourceOptions} from "tsparticles-engine";
-import {loadSlim} from "tsparticles-slim";
 import {AnimatedTextWord} from "patryk/components/animated-word";
 import {Card, CardHeader, CardTitle} from "patryk/components/ui/card";
 import {FaAngular, FaHtml5, FaReact} from "react-icons/fa";
 import {SiEslint, SiNextdotjs, SiPrisma, SiReactivex, SiRedux, SiTailwindcss, SiTypescript} from "react-icons/si";
 import {Button} from "patryk/components/ui/button";
+import {ParticlesWrapper} from "patryk/components/particles-wrapper";
+import {AnimatedLogo} from "patryk/components/animated-log";
+import {Metadata} from "next";
 
-const particlesOptions: ISourceOptions = {
-    background: {
-        color: {
-            value: "transparent",
-        },
-    },
-    fpsLimit: 120,
-    interactivity: {
-        events: {},
-        modes: {
-            push: {
-                quantity: 2,
-            },
-            repulse: {
-                distance: 200,
-                duration: 0.4,
-            },
-        },
-    },
-    particles: {
-        color: {
-            value: "#ffffff",
-        },
-        links: {
-            color: "#ffffff",
-            distance: 150,
-            enable: true,
-            opacity: 0.5,
-            width: 1,
-        },
-        move: {
-            direction: "none",
-            enable: true,
-            outModes: {
-                default: "bounce",
-            },
-            random: false,
-            speed: 2,
-            straight: false,
-        },
-        number: {
-            density: {
-                enable: true,
-                area: 800,
-            },
-            value: 80,
-        },
-        opacity: {
-            value: 0.5,
-        },
-        shape: {
-            type: "circle",
-        },
-        size: {
-            value: {min: 1, max: 5},
-        },
-    },
-    detectRetina: true
-}
+// export const metadata: Metadata = {
+//     title: 'Patryk Krasuski - Frontend Developer',
+//     description: 'My name is Patryk Krasuski and I am a frontend developer. I am currently working at BigPicture (Appfire) as a frontend developer. I am open to job offers.',
+// }
 
 export default function Home() {
-    // @ts-ignore
-    const particlesInit = useCallback(async (engine: Engine) => {
-        await loadSlim(engine);
-    }, []);
 
     return (
         <div className="w-screen h-screen bg-origin-content text-primary overflow-hidden">
@@ -90,17 +26,7 @@ export default function Home() {
                                 <span>Patryk Krasuski</span>
                                 <div
                                     className="w-10 h-10 rounded-full flex justify-center items-center from-red-600 to-purple-500 bg-gradient-to-r">
-                                    <motion.div
-                                        initial={{scale: 0}}
-                                        animate={{rotate: 360, scale: 1}}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 260,
-                                            damping: 20
-                                        }}
-                                    >
-                                        <Image src="/beza.png" alt="me" width="32" height="32"/>
-                                    </motion.div>
+                                    <AnimatedLogo/>
                                 </div>
                             </div>
                             <span className="block">Frontend Developer</span>
@@ -114,11 +40,12 @@ export default function Home() {
                                 <CardTitle>
                                     <AnimatedTextWord text="Contact with me"/>
                                 </CardTitle>
-                                <Card className="bg-muted overflow-hidden gap-3 grid grid-cols-2 justify-between items-center mb-3 z-20 p-2 px-3">
+                                <Card
+                                    className="bg-muted overflow-hidden gap-3 grid grid-cols-2 justify-between items-center mb-3 z-20 p-2 px-3">
                                     <div className="shrink grow-0">krasuskipatryk94@gmail.com</div>
-                                   <div className="flex items-center justify-end">
-                                       <Button className="shrink-0 flex-none" variant="outline">Copy</Button>
-                                   </div>
+                                    <div className="flex items-center justify-end">
+                                        <Button className="shrink-0 flex-none" variant="outline">Copy</Button>
+                                    </div>
                                 </Card>
 
                                 <Card className="bg-muted flex justify-between items-center z-20 p-2 px-3">
@@ -129,13 +56,13 @@ export default function Home() {
 
                         <Card className="overflow-hidden">
                             <CardHeader>
-                                <CardTitle><AnimatedTextWord text="My expiriance"/></CardTitle>
+                                <CardTitle><AnimatedTextWord text="My experience"/></CardTitle>
                                 <Card className="bg-muted z-20 p-2 px-3">
-                                    BigPicture (Appfire)
+                                    BigPicture (Appfire) | April 2019–Present · 4 years 5 months
                                 </Card>
 
                                 <Card className="bg-muted mb-3 z-20 p-2 px-3">
-                                    ValueAdd
+                                    ValueAdd | April 2018 April 2019 · 1 year 1 month
                                 </Card>
                             </CardHeader>
                         </Card>
@@ -152,17 +79,13 @@ export default function Home() {
 
                         <Card className="overflow-hidden">
                             <CardHeader>
-                                <CardTitle><AnimatedTextWord text="Open for job requests"/></CardTitle>
+                                <CardTitle><AnimatedTextWord text="I am open to job offers"/></CardTitle>
                             </CardHeader>
                         </Card>
                     </div>
                 </div>
             </div>
-            <Particles
-                className="z-0"
-                init={particlesInit}
-                id="tsparticles"
-                options={particlesOptions}/>
+            <ParticlesWrapper/>
 
         </div>
     )
