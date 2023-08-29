@@ -1,113 +1,169 @@
-import Image from 'next/image'
+'use client'
+import Image from 'next/image';
+import {motion} from "framer-motion";
+import Particles from "react-particles"
+import {useCallback} from "react";
+import type {Engine} from "tsparticles-engine";
+import {ISourceOptions} from "tsparticles-engine";
+import {loadSlim} from "tsparticles-slim";
+import {AnimatedTextWord} from "patryk/components/animated-word";
+import {Card, CardHeader, CardTitle} from "patryk/components/ui/card";
+import {FaAngular, FaHtml5, FaReact} from "react-icons/fa";
+import {SiEslint, SiNextdotjs, SiPrisma, SiReactivex, SiRedux, SiTailwindcss, SiTypescript} from "react-icons/si";
+import {Button} from "patryk/components/ui/button";
+
+const particlesOptions: ISourceOptions = {
+    background: {
+        color: {
+            value: "transparent",
+        },
+    },
+    fpsLimit: 120,
+    interactivity: {
+        events: {},
+        modes: {
+            push: {
+                quantity: 2,
+            },
+            repulse: {
+                distance: 200,
+                duration: 0.4,
+            },
+        },
+    },
+    particles: {
+        color: {
+            value: "#ffffff",
+        },
+        links: {
+            color: "#ffffff",
+            distance: 150,
+            enable: true,
+            opacity: 0.5,
+            width: 1,
+        },
+        move: {
+            direction: "none",
+            enable: true,
+            outModes: {
+                default: "bounce",
+            },
+            random: false,
+            speed: 2,
+            straight: false,
+        },
+        number: {
+            density: {
+                enable: true,
+                area: 800,
+            },
+            value: 80,
+        },
+        opacity: {
+            value: 0.5,
+        },
+        shape: {
+            type: "circle",
+        },
+        size: {
+            value: {min: 1, max: 5},
+        },
+    },
+    detectRetina: true
+}
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    // @ts-ignore
+    const particlesInit = useCallback(async (engine: Engine) => {
+        await loadSlim(engine);
+    }, []);
+
+    return (
+        <div className="w-screen h-screen bg-origin-content text-primary overflow-hidden">
+            <div className="w-full h-full container z-10 grid grid-cols-1 md:grid-cols-2">
+                <div className="w-full z-10 h-full flex flex-col justify-between items-center row-span-1 ">
+                    <div className="w-full h-full">
+                    </div>
+                    <div className="w-full h-full text-primary text-4xl flex my-5 md:my-0">
+                        <div className="self-center">
+                            <div className="flex gap-2">
+                                <span>Patryk Krasuski</span>
+                                <div
+                                    className="w-10 h-10 rounded-full flex justify-center items-center from-red-600 to-purple-500 bg-gradient-to-r">
+                                    <motion.div
+                                        initial={{scale: 0}}
+                                        animate={{rotate: 360, scale: 1}}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 260,
+                                            damping: 20
+                                        }}
+                                    >
+                                        <Image src="/beza.png" alt="me" width="32" height="32"/>
+                                    </motion.div>
+                                </div>
+                            </div>
+                            <span className="block">Frontend Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <div className="w-full h-full flex flex-col bg-muted mb-5 md:mb-0">
+                    <div className="p-5">
+                        <Card className="overflow-hidden">
+                            <CardHeader>
+                                <CardTitle>
+                                    <AnimatedTextWord text="Contact with me"/>
+                                </CardTitle>
+                                <Card className="bg-muted overflow-hidden gap-3 grid grid-cols-2 justify-between items-center mb-3 z-20 p-2 px-3">
+                                    <div className="shrink grow-0">krasuskipatryk94@gmail.com</div>
+                                   <div className="flex items-center justify-end">
+                                       <Button className="shrink-0 flex-none" variant="outline">Copy</Button>
+                                   </div>
+                                </Card>
+
+                                <Card className="bg-muted flex justify-between items-center z-20 p-2 px-3">
+                                    +48 530 044 418 <Button variant="outline">Copy</Button>
+                                </Card>
+                            </CardHeader>
+                        </Card>
+
+                        <Card className="overflow-hidden">
+                            <CardHeader>
+                                <CardTitle><AnimatedTextWord text="My expiriance"/></CardTitle>
+                                <Card className="bg-muted z-20 p-2 px-3">
+                                    BigPicture (Appfire)
+                                </Card>
+
+                                <Card className="bg-muted mb-3 z-20 p-2 px-3">
+                                    ValueAdd
+                                </Card>
+                            </CardHeader>
+                        </Card>
+
+                        <Card className="overflow-hidden">
+                            <CardHeader>
+                                <CardTitle><AnimatedTextWord text="Technologies"/></CardTitle>
+                                <Card className="bg-muted gap-3 z-20 p-2 flex items-center justify-center">
+                                    <FaAngular/> <FaReact/> <SiNextdotjs/> <SiReactivex/> <SiTypescript/> <SiRedux/>
+                                    <SiTailwindcss/> <FaHtml5/> <SiPrisma/> <SiEslint/>
+                                </Card>
+                            </CardHeader>
+                        </Card>
+
+                        <Card className="overflow-hidden">
+                            <CardHeader>
+                                <CardTitle><AnimatedTextWord text="Open for job requests"/></CardTitle>
+                            </CardHeader>
+                        </Card>
+                    </div>
+                </div>
+            </div>
+            <Particles
+                className="z-0"
+                init={particlesInit}
+                id="tsparticles"
+                options={particlesOptions}/>
+
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    )
 }
