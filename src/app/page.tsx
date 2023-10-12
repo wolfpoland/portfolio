@@ -51,7 +51,7 @@ export default function Home() {
                 <CardTitle>
                   <AnimatedTextWord text="Contact with me" />
                 </CardTitle>
-                <Card className="bg-muted overflow-hidden gap-3 grid grid-cols-2 justify-between items-center mb-3 z-20 p-2 px-3">
+                <Card className="bg-primary-foreground overflow-hidden gap-3 grid grid-cols-2 justify-between items-center mb-3 z-20 p-2 px-3">
                   <div className="shrink grow-0">
                     krasuskipatryk94@gmail.com
                   </div>
@@ -60,7 +60,7 @@ export default function Home() {
                   </div>
                 </Card>
 
-                <Card className="bg-muted flex justify-between items-center z-20 p-2 px-3">
+                <Card className="bg-primary-foreground flex justify-between items-center z-20 p-2 px-3">
                   +48 530 044 418
                   <div className="flex items-center justify-end">
                     <Clipboard textToCopy="+48530044418" />
@@ -89,11 +89,11 @@ export default function Home() {
                 <CardTitle>
                   <AnimatedTextWord text="My experience" />
                 </CardTitle>
-                <Card className="bg-muted z-20 p-2 px-3">
+                <Card className="bg-primary-foreground z-20 p-2 px-3">
                   BigPicture (Appfire) | April 2019 – Present · 4 years 5 months
                 </Card>
 
-                <Card className="bg-muted mb-3 z-20 p-2 px-3">
+                <Card className="bg-primary-foreground mb-3 z-20 p-2 px-3">
                   ValueAdd | April 2018 - April 2019 · 1 year 1 month
                 </Card>
               </CardHeader>
@@ -104,7 +104,7 @@ export default function Home() {
                 <CardTitle>
                   <AnimatedTextWord text="Technologies" />
                 </CardTitle>
-                <Card className="bg-muted gap-3 z-20 p-2 flex items-center justify-center">
+                <Card className="bg-primary-foreground gap-3 z-20 p-2 flex items-center justify-center">
                   <FaAngular /> <FaReact /> <SiNextdotjs /> <SiReactivex />{" "}
                   <SiTypescript /> <SiRedux />
                   <SiTailwindcss /> <FaHtml5 /> <SiPrisma /> <SiEslint />
