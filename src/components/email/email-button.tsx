@@ -1,17 +1,18 @@
 "use client";
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Button } from "patryk/components/ui/button";
 import { BsFillEnvelopeFill } from "react-icons/bs";
+import { EmailService } from "patryk/components/email/email-service";
 
 export type EmailButtonProps = {
   email: string;
 };
 
-export const EmailButton: FC<EmailButtonProps> = ({ email }) => {
+export const EmailButton: FC<EmailButtonProps> = memo(({ email }) => {
   return (
     <Button
       onClick={(event) => {
-        window.open(`mailto:${email}`);
+        EmailService.openEmail(email);
         event.preventDefault();
       }}
       variant="ghost"
@@ -19,4 +20,6 @@ export const EmailButton: FC<EmailButtonProps> = ({ email }) => {
       <BsFillEnvelopeFill />
     </Button>
   );
-};
+});
+
+EmailButton.displayName = "EmailButton";

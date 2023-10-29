@@ -1,7 +1,7 @@
 "use client";
 import Particles from "react-particles";
 import { Engine, ISourceOptions } from "tsparticles-engine";
-import { useCallback } from "react";
+import { memo, useCallback } from "react";
 import { loadSlim } from "tsparticles-slim";
 
 const particlesOptions: ISourceOptions = {
@@ -64,7 +64,7 @@ const particlesOptions: ISourceOptions = {
   detectRetina: true,
 };
 
-export const ParticlesWrapper = () => {
+export const ParticlesWrapper = memo(() => {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
@@ -77,4 +77,6 @@ export const ParticlesWrapper = () => {
       options={particlesOptions}
     />
   );
-};
+});
+
+ParticlesWrapper.displayName = "ParticlesWrapper";

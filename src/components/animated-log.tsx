@@ -1,8 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { memo } from "react";
 
-export const AnimatedLogo = () => {
+export const AnimatedLogo = memo(() => {
   return (
     <motion.div
       initial={{ scale: 0 }}
@@ -16,4 +17,6 @@ export const AnimatedLogo = () => {
       <Image src="/beza.png" alt="me" width="32" height="32" />
     </motion.div>
   );
-};
+});
+
+AnimatedLogo.displayName = "AnimatedLogo";
