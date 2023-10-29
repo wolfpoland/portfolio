@@ -31,8 +31,8 @@ export const Bio = () => {
           </p>
 
           <p className="text-2xl">
-            I'm passionate about my work and always looking for new new
-            challenges. I'm currently working with React and Next.js.
+            I&apos;m passionate about my work and always looking for new new
+            challenges. I&apos;m currently working with React and Next.js.
           </p>
         </div>
       </div>
