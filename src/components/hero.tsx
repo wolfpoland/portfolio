@@ -1,5 +1,4 @@
 import { Card, CardHeader, CardTitle } from "patryk/components/ui/card";
-import { AnimatedTextWord } from "patryk/components/ui/animated-word";
 import { BsFillEnvelopeFill, BsTelephoneFill } from "react-icons/bs";
 import { Clipboard } from "patryk/components/clipboard/clipboard";
 import { EmailButton } from "patryk/components/email/email-button";
@@ -8,6 +7,7 @@ import { SiBitbucket, SiGithub, SiLinkedin } from "react-icons/si";
 import { TelephoneButton } from "patryk/components/telephone/telephone-button";
 import { Technologies } from "patryk/components/technologies";
 import { DateUilService } from "patryk/utils/date";
+import { TypingAnimation } from "patryk/components/ui/typing-animation";
 
 export const Hero = () => {
   return (
@@ -18,7 +18,7 @@ export const Hero = () => {
           <Card className="overflow-hidden">
             <CardHeader>
               <CardTitle>
-                <AnimatedTextWord text="Contact with me" />
+                <TypingAnimation text="Contact with me" />
               </CardTitle>
               <Card className="bg-primary-foreground overflow-hidden gap-3 grid grid-cols-2 justify-between items-center mb-3 z-20 p-2 px-3">
                 <div className="shrink grow-0">
@@ -71,7 +71,7 @@ export const Hero = () => {
           <Card className="overflow-hidden">
             <CardHeader>
               <CardTitle>
-                <AnimatedTextWord text="My experience" />
+                <TypingAnimation text="My experience" />
               </CardTitle>
               <Card className="bg-primary-foreground z-10 p-2 px-3">
                 BigPicture (Appfire) | April 2019 – Present <br />
@@ -93,7 +93,7 @@ export const Hero = () => {
           <Card className="overflow-hidden">
             <CardHeader>
               <CardTitle>
-                <AnimatedTextWord text="I am open to job offers" />
+                <TypingAnimation text="I am open to job offers" />
               </CardTitle>
             </CardHeader>
           </Card>
