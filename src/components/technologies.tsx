@@ -28,8 +28,8 @@ export const Technologies = () => {
           </AnimatedIcon>
         </HoverCardTrigger>
         <HoverCardContent>
-          <LevelPresenter className="mb-5" levelCount={5} filledLevels={4} />I
-          started using Angular for work in 2018, and I&apos;ve been playing
+          <LevelPresenter className="mb-5" levelCount={5} filledLevels={4} />
+          I started using Angular for work in 2018, and I&apos;ve been playing
           around with it for fun since 2016. I&apos;ve worked on both big and
           small projects. I wouldn&apos;t say I&apos;m a master at it, though,
           because I haven&apos;t gotten into Angular&apos;s source code.

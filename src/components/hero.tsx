@@ -8,6 +8,7 @@ import { TelephoneButton } from "patryk/components/telephone/telephone-button";
 import { Technologies } from "patryk/components/technologies";
 import { DateUilService } from "patryk/utils/date";
 import { TypingAnimation } from "patryk/components/ui/typing-animation";
+import { LevelPresenter } from "patryk/components/level-presenter";
 
 export const Hero = () => {
   return (

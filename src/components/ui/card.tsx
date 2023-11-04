@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { cn } from "patryk/lib/utils";
+import { cn } from "patryk/utils/utility/utils";
 
 const Card = React.forwardRef<
   HTMLDivElement,
