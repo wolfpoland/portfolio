@@ -14,13 +14,17 @@ export default function Home() {
   return (
     <>
       <div className="mt-[120px] md:mt-0 relative md:absolute w-screen h-min-[680px] overflow-x-hidden">
-        <Hero />
+        <section about="hero" data-testid="hero">
+          <Hero />
+        </section>
         <ParticlesWrapper />
       </div>
       <div className="block h-0 md:visible md:h-[70vh] w-full"></div>
       <Navbar />
       <div className="fixed md:sticky top-0 w-full h-[100px] bg-primary-foreground z-20 opacity-70"></div>
-      <Bio />
+      <section data-testid="bio" about="bio">
+        <Bio />
+      </section>
     </>
   );
 }

@@ -6,6 +6,7 @@ export const Bio = () => {
     <div className="w-full h-[100vh] relative grid grid-cols-1 md:grid-cols-2">
       <div className="hidden md:visible w-full h-full md:flex flex-col justify-center items-center">
         <Image
+          data-testid="bio-image"
           className="z-10"
           src="/patryk.webp"
           alt="That's me"
@@ -14,7 +15,7 @@ export const Bio = () => {
         />
       </div>
       <div className="w-full h-full my-[100px] md:my-0 flex flex-col justify-start items-center bg-muted text-accent-foreground">
-        <div className="mt-20 container">
+        <div data-testid="bio-description" className="container pt-20">
           <h2 className="text-7xl mb-10">My name is Patryk Krasuski</h2>
           <p className="text-4xl mb-10">
             I am currently working at BigPicture (Appfire) as a front-end
