@@ -1,5 +1,5 @@
 import { animated, useSpring } from "@react-spring/web";
-import { FC, memo, useEffect, useRef, useState } from "react";
+import { FC, memo, useEffect, useRef } from "react";
 import { UtilityService } from "patryk/utils/utility";
 
 export type AnimatedIconProps = {

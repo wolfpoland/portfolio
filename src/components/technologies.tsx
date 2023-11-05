@@ -16,7 +16,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "patryk/components/ui/hover-card";
-import { LevelPresenter } from "patryk/components/level-presenter";
+import { LevelPresenter } from "patryk/components/level-presenter/level-presenter";
 
 export const Technologies = () => {
   return (
