@@ -21,6 +21,7 @@ export default defineConfig({
         "**/*.d.ts",
         "**/*.test.*",
         "**/*.config.*",
+        "**/e2e/**",
         "**/snapshot-tests/**",
         "**/*.solution.tsx",
         "**/coverage/**",
