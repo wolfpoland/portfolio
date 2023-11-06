@@ -50,11 +50,13 @@ test("it loaded bio section with all elements", async ({ page }) => {
 test("test command dialog", async ({ page }) => {
   await page.goto("localhost:3000");
 
+  await expect(page.getByTestId("hero")).toBeVisible();
+
   await page.keyboard.down("Meta");
   await page.keyboard.press("K");
 
-  const isVisible = await page.isVisible(
+  const input = await page.waitForSelector(
     'input[placeholder="Type a command or search..."]',
   );
-  expect(isVisible).toBeTruthy();
+  expect(input.isVisible()).toBeTruthy();
 });

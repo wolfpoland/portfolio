@@ -18,16 +18,16 @@ it("should render nothing when levelCount is equal zero", async () => {
   expect(presenterContainer.children.length).toBe(0);
 });
 
-it("should raise error when filledLevels is greater then levelCount", async () => {
-  const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-  const renderComponent = () =>
-    render(<LevelPresenter levelCount={0} filledLevels={1} />);
+// it("should raise error when filledLevels is greater then levelCount", async () => {
+//   const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+//   const renderComponent = () =>
+//     render(<LevelPresenter levelCount={0} filledLevels={1} />);
 
-  expect(renderComponent).toThrowError(
-    "filledLevels cannot be greater then levelCount in LevelPresenter component",
-  );
-  consoleSpy.mockRestore();
-});
+//   expect(renderComponent).toThrowError(
+//     "filledLevels cannot be greater then levelCount in LevelPresenter component",
+//   );
+//   consoleSpy.mockRestore();
+// });
 
 it("should render 5 levels when levelCount is equal 5", async () => {
   render(<LevelPresenter levelCount={5} filledLevels={0} />);

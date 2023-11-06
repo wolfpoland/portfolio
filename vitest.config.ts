@@ -1,5 +1,5 @@
 import path from "node:path";
-import { defineConfig } from "vitest/config";
+import { defineConfig, defaultExclude } from "vitest/config";
 import configuration from "./vite.config";
 
 export default defineConfig({
@@ -11,7 +11,8 @@ export default defineConfig({
     },
   },
   test: {
-    environmentMatchGlobs: [["**/*.test.tsx", "jsdom"]],
+    environmentMatchGlobs: [["**/*.test.tsx", "happy-dom"]],
+    exclude: [...defaultExclude, "**/e2e/**"],
     coverage: {
       statements: 54.92,
       thresholdAutoUpdate: true,
@@ -21,6 +22,7 @@ export default defineConfig({
         "**/*.d.ts",
         "**/*.test.*",
         "**/*.config.*",
+        "**/*.spec.*",
         "**/e2e/**",
         "**/snapshot-tests/**",
         "**/*.solution.tsx",

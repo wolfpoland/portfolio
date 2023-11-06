@@ -13,13 +13,17 @@ export type LevelPresenterProps = {
   className?: string;
 };
 
-const Container: FC<ContainerProps> = ({ children = null, className = "" }) => {
-  return (
-    <div data-testid="level-presenter-container" className={`${className}`}>
-      {children}
-    </div>
-  );
-};
+const Container: FC<ContainerProps> = memo(
+  ({ children = null, className = "" }) => {
+    return (
+      <div data-testid="level-presenter-container" className={`${className}`}>
+        {children}
+      </div>
+    );
+  },
+);
+
+Container.displayName = "Container";
 
 export const LevelPresenter: FC<LevelPresenterProps> = memo(
   ({ levelCount, filledLevels, className = "" }) => {
