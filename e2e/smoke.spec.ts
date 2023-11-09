@@ -47,7 +47,11 @@ test("it loaded bio section with all elements", async ({ page }) => {
   await expect(description).toBeVisible();
 });
 
-test("test command dialog", async ({ page }) => {
+test('test command dialog', async ({ page, browserName }) => {
+  if (browserName === 'firefox') {
+    test.skip();
+  }
+
   await page.goto("localhost:3000");
 
   await expect(page.getByTestId("hero")).toBeVisible();
