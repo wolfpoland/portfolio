@@ -23,7 +23,7 @@ export const Technologies = () => {
     <Card className="bg-primary-foreground gap-3 z-20 p-2 flex items-center justify-center">
       <HoverCard>
         <HoverCardTrigger>
-          <AnimatedIcon>
+          <AnimatedIcon testId="technologies-angular-icon">
             <FaAngular />
           </AnimatedIcon>
         </HoverCardTrigger>

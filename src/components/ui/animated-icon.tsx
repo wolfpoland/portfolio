@@ -4,9 +4,10 @@ import { UtilityService } from "patryk/utils/utility";
 
 export type AnimatedIconProps = {
   children: React.ReactNode;
+  testId?: string;
 };
 
-export const AnimatedIcon: FC<AnimatedIconProps> = memo(({ children }) => {
+export const AnimatedIcon: FC<AnimatedIconProps> = memo(({ children, testId }) => {
   const mouseEnterRef = useRef(false);
   const [props, set] = useSpring(() => ({
     scale: 1,
@@ -33,6 +34,7 @@ export const AnimatedIcon: FC<AnimatedIconProps> = memo(({ children }) => {
 
   return (
     <animated.div
+    data-testid={testId}
       style={{
         display: "inline-block",
         transform: props.scale.to((scale) => `scale(${scale})`),

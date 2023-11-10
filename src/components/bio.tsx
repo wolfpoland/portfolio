@@ -3,7 +3,10 @@ import { DateUilService } from "patryk/utils/date";
 
 export const Bio = () => {
   return (
-    <div className="w-full h-[100vh] pb-[50px] relative grid grid-cols-1 md:grid-cols-2">
+    <div
+      data-testid="bio-container"
+      className="w-full h-[100vh] pb-[50px] relative grid grid-cols-1 md:grid-cols-2"
+    >
       <div className="hidden w-full h-full md:block">
         <Image
           data-testid="bio-image"

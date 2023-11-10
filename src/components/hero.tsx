@@ -30,7 +30,10 @@ export const Hero = () => {
                   </div>
                 </div>
                 <div className="flex items-center justify-end">
-                  <Clipboard textToCopy="krasuskipatryk94@gmail.com" />
+                  <Clipboard
+                    testId="clipboard-button"
+                    textToCopy="krasuskipatryk94@gmail.com"
+                  />
                 </div>
               </Card>
 
@@ -43,7 +46,10 @@ export const Hero = () => {
                 </div>
               </Card>
 
-              <Card data-testid="hero-contact-shortcut" className="w-[230px] overflow-hidden items-center flex">
+              <Card
+                data-testid="hero-contact-shortcut"
+                className="w-[230px] overflow-hidden items-center flex"
+              >
                 <EmailButton email="krasuskipatryk94@gmail.com" />
                 <a href="https://www.linkedin.com/in/patryk-krasuski-400350148/">
                   <Button variant="ghost">
