@@ -16,14 +16,14 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "patryk/components/ui/hover-card";
-import { LevelPresenter } from "patryk/components/level-presenter";
+import { LevelPresenter } from "patryk/components/level-presenter/level-presenter";
 
 export const Technologies = () => {
   return (
     <Card className="bg-primary-foreground gap-3 z-20 p-2 flex items-center justify-center">
       <HoverCard>
         <HoverCardTrigger>
-          <AnimatedIcon>
+          <AnimatedIcon testId="technologies-angular-icon">
             <FaAngular />
           </AnimatedIcon>
         </HoverCardTrigger>

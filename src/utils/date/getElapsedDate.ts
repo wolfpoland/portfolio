@@ -7,6 +7,10 @@ import {
 } from "date-fns";
 
 export function getElapsedDate(startDate: Date, endDate: Date) {
+  if (endDate < startDate) {
+    throw new Error("End date cannot be less than start date");
+  }
+
   const years = differenceInYears(endDate, startDate);
   const addedYears = addYears(startDate, years);
   const monthsAfterYears = differenceInMonths(endDate, addedYears);

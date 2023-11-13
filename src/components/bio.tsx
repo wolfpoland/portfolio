@@ -3,18 +3,22 @@ import { DateUilService } from "patryk/utils/date";
 
 export const Bio = () => {
   return (
-    <div className="w-full h-[100vh] relative grid grid-cols-1 md:grid-cols-2">
-      <div className="hidden md:visible w-full h-full md:flex flex-col justify-center items-center">
+    <div
+      data-testid="bio-container"
+      className="w-full h-[100vh] pb-[50px] relative grid grid-cols-1 md:grid-cols-2"
+    >
+      <div className="hidden w-full h-full md:block">
         <Image
-          className="z-10"
+          data-testid="bio-image"
+          className="z-10 object-cover object-center sticky top-[100px]"
           src="/patryk.webp"
           alt="That's me"
           width={886}
           height={904}
         />
       </div>
-      <div className="w-full h-full my-[100px] md:my-0 flex flex-col justify-start items-center bg-muted text-accent-foreground">
-        <div className="mt-20 container">
+      <div className="w-full h-full pb-[50px] mt-[100px] md:mt-0 flex flex-col justify-start items-center bg-muted text-accent-foreground">
+        <div data-testid="bio-description" className="container pt-20">
           <h2 className="text-7xl mb-10">My name is Patryk Krasuski</h2>
           <p className="text-4xl mb-10">
             I am currently working at BigPicture (Appfire) as a front-end

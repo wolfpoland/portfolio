@@ -82,7 +82,7 @@ export const CommandActions: FC<CommandActionsProps> = memo(({ children }) => {
       </p>
       {children}
 
-      <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandDialog data-testid="command-dialog" open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
