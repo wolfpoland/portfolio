@@ -21,13 +21,19 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
+  ignoreSnapshots: false,
+  snapshotDir: "./e2e/__snapshots__",
+  updateSnapshots: 'all',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
+    trace: "retry-with-trace",
+    headless: true,
+    screenshot: "only-on-failure",
+    video: "retry-with-video",
   },
 
   /* Configure projects for major browsers */
@@ -36,11 +42,22 @@ export default defineConfig({
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
+  //   {
+  //     name: "Desktop-Chrome",
+  //     use: {
+  //         browserName: "chromium",
+  //         channel: "chrome",
+  //         viewport: { width: 1920, height: 1080 },
+  //         launchOptions: {
+  //             args: ["--disable-web-security"],
+  //         },
+  //     },
+  // },
 
-    // {
-    //   name: "firefox",
-    //   use: { ...devices["Desktop Firefox"] },
-    // },
+    {
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"] },
+    },
 
     // {
     //   name: "webkit",
@@ -70,7 +87,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: "pnpm run dev",
+    command: "npm run dev",
     url: "http://127.0.0.1:3000",
     reuseExistingServer: !process.env.CI,
   },

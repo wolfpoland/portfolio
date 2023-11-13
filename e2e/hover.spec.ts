@@ -7,7 +7,7 @@ test("it should change background when hover over button", async ({ page }) => {
 
   await expect(button).toBeVisible();
   await button.hover();
-  expect(button).toHaveScreenshot({ maxDiffPixels: 100});
+  await expect(button).toHaveScreenshot();
 });
 
 test("it should scale technology entry with dialog appearance", async ({ page }) => {
@@ -20,5 +20,5 @@ test("it should scale technology entry with dialog appearance", async ({ page })
 
     const hoverCard = await page.getByTestId("hover-card");
     await expect(hoverCard).toBeVisible();
-    expect(hoverCard).toHaveScreenshot({ maxDiffPixels: 100});
+    await expect(hoverCard).toHaveScreenshot({ maxDiffPixels: 100});
   });

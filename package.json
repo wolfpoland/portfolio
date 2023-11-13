@@ -9,7 +9,8 @@
     "lint": "next lint",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
-    "e2e": "pnpm exec playwright test",
+    "e2e": "playwright test",
+    "e2e:update-snapshots": "xvfb-run --auto-servernum --server-args='-screen 0, 1920x1080x24' npx  playwright test",
     "e2e:ui": "pnpm exec playwright test --ui"
   },
   "dependencies": {
