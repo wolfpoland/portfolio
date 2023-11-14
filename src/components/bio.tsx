@@ -10,7 +10,7 @@ export const Bio = () => {
       <div className="hidden w-full h-full md:block">
         <Image
           data-testid="bio-image"
-          className="z-10 object-cover object-center sticky top-[100px]"
+          className="z-10 object-cover object-center sticky top-[100px] w-full h-full"
           src="/patryk.webp"
           alt="That's me"
           width={886}
