@@ -13,6 +13,7 @@ import { ClipboardService } from "patryk/components/clipboard/clipboard-service"
 import { TelephoneService } from "patryk/components/telephone/telephone-service";
 import { EmailService } from "patryk/components/email/email-service";
 import { SiBitbucket, SiGithub, SiLinkedin } from "react-icons/si";
+import { UtilityService } from "patryk/utils/utility";
 
 export type CommandActionsProps = {
   children: ReactNode;
@@ -20,17 +21,27 @@ export type CommandActionsProps = {
 
 export const CommandActions: FC<CommandActionsProps> = memo(({ children }) => {
   const [open, setOpen] = useState(false);
+  const [macOs, setIsMacOs] = useState<boolean | undefined>();
 
   useEffect(() => {
+    setIsMacOs(UtilityService.detectOs(window) === "Macintosh");
     const down = (e: KeyboardEvent) => {
-      if ((e.key === "k" || e.key === "K") && (e.metaKey || e.ctrlKey)) {
+      const conditions = {
+        macos: (e.key === "k" || e.key === "K") && (e.metaKey),
+        other: (e.key === "k" || e.key === "K") && e.ctrlKey,
+      };
+
+      const condition = macOs ? conditions.macos : conditions.other;
+
+      if (condition) {
         e.preventDefault();
         setOpen((open) => !open);
       }
     };
+
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, []);
+  }, [macOs]);
 
   const handlePhoneSelect = () => {
     ClipboardService.copyToClipboard("+48530044418");
@@ -74,15 +85,22 @@ export const CommandActions: FC<CommandActionsProps> = memo(({ children }) => {
 
   return (
     <>
-      <p className="z-50 select-none p-1 px-2 rounded-lg border opacity-75  bg-primary-foreground fixed bottom-3 right-3 text-sm text-muted-foreground">
-        Press{" "}
-        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-          <span className="text-xs">⌘</span>K
-        </kbd>
-      </p>
+      {macOs !== undefined && (
+        <p className="z-50 select-none p-1 px-2 rounded-lg border opacity-75  bg-primary-foreground fixed bottom-3 right-3 text-sm text-muted-foreground">
+          Press{" "}
+          <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+            <span className="text-xs">{macOs ? "⌘" : "Ctrl"}</span>
+            <span className="text-md">K</span>
+          </kbd>
+        </p>
+      )}
       {children}
 
-      <CommandDialog data-testid="command-dialog" open={open} onOpenChange={setOpen}>
+      <CommandDialog
+        data-testid="command-dialog"
+        open={open}
+        onOpenChange={setOpen}
+      >
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>

@@ -13,7 +13,7 @@ export const Hero = () => {
   return (
     <div className="w-full h-full overflow-hidden container z-10 grid grid-cols-1 md:grid-cols-2">
       <div className="w-full h-0 md:h-screen none md:block z-10 flex flex-col justify-between items-center row-span-1 "></div>
-      <div className="w-full h-full flex-col grid justify-center bg-muted mb-5 md:mb-0">
+      <div className="w-full h-full rounded-lg border flex-col grid justify-center bg-muted mb-5 md:mb-0">
         <div className="flex flex-col justify-center p-3 ">
           <Card data-testid="hero-contact-with-me" className="overflow-hidden">
             <CardHeader>
