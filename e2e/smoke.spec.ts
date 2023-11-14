@@ -47,16 +47,17 @@ test("it loaded bio section with all elements", async ({ page }) => {
   await expect(description).toBeVisible();
 });
 
-test('test command dialog', async ({ page, browserName }) => {
-  if (browserName === 'firefox') {
+test("test command dialog", async ({ page, browserName }) => {
+  if (browserName === "firefox") {
     test.skip();
   }
 
   await page.goto("localhost:3000");
 
   await expect(page.getByTestId("hero")).toBeVisible();
+  await expect(page.getByTestId("command-open-info")).toBeVisible();
 
-  await page.keyboard.down("Meta");
+  await page.keyboard.down("Control");
   await page.keyboard.press("K");
 
   const input = await page.waitForSelector(
