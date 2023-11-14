@@ -11,7 +11,7 @@ import { TypingAnimation } from "patryk/components/ui/typing-animation";
 
 export const Hero = () => {
   return (
-    <div className="w-full h-full overflow-hidden container z-10 grid grid-cols-1 md:grid-cols-2">
+    <div className="w-full h-full overflow-hidden sm:container z-10 grid grid-cols-1 md:grid-cols-2">
       <div className="w-full h-0 md:h-screen none md:block z-10 flex flex-col justify-between items-center row-span-1 "></div>
       <div className="w-full h-full rounded-lg border flex-col grid justify-center bg-muted mb-5 md:mb-0">
         <div className="flex flex-col justify-center p-3 ">
@@ -24,9 +24,10 @@ export const Hero = () => {
                 />
               </CardTitle>
               <Card className="bg-primary-foreground overflow-hidden gap-3 grid grid-cols-2 justify-between items-center mb-3 z-20 p-2 px-3">
-                <div className="shrink grow-0">
+                <div className="grow-0">
                   <div className="flex items-center gap-3">
-                    <BsFillEnvelopeFill /> krasuskipatryk94@gmail.com
+                    <BsFillEnvelopeFill className="flex-shrink-0" />
+                    <span> krasuskipatryk94@gmail.com</span>
                   </div>
                 </div>
                 <div className="flex items-center justify-end">
