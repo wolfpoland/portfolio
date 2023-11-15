@@ -22,7 +22,6 @@ import { LevelPresenter } from "patryk/components/level-presenter/level-presente
 
 export const Technologies = () => {
   return (
-    <CardHeader>
       <Card className="bg-primary-foreground gap-3 z-20 p-2 flex items-center justify-center">
         <HoverCard>
           <HoverCardTrigger>
@@ -172,6 +171,5 @@ export const Technologies = () => {
           </HoverCardContent>
         </HoverCard>
       </Card>
-    </CardHeader>
   );
 };
