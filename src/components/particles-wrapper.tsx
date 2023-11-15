@@ -1,10 +1,14 @@
 "use client";
+
+import { memo, useCallback } from "react";
 import Particles from "react-particles";
 import { Engine, ISourceOptions } from "tsparticles-engine";
-import { memo, useCallback } from "react";
 import { loadSlim } from "tsparticles-slim";
 
 const particlesOptions: ISourceOptions = {
+  style: {
+    height: "100vh",
+  },
   background: {
     color: {
       value: "transparent",
