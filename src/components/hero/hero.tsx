@@ -1,5 +1,3 @@
-import { FC } from "react";
-
 import { HeroClipboardCards } from "patryk/components/hero/hero-clipboard-cards";
 import { HeroJobHistory } from "patryk/components/hero/hero-job-history";
 import { HeroShortcuts } from "patryk/components/hero/hero-shortcuts";
@@ -7,7 +5,7 @@ import { Technologies } from "patryk/components/hero/technologies";
 import { Card, CardHeader, CardTitle } from "patryk/components/ui/card";
 import { TypingAnimation } from "patryk/components/ui/typing-animation";
 
-export const Hero: FC = () => {
+export const Hero = () => {
   return (
     <div className="w-full h-full overflow-hidden sm:container z-10 grid grid-cols-1 md:grid-cols-2">
       <div className="w-full h-0 md:h-screen none md:block z-10 flex flex-col justify-between items-center row-span-1 "></div>
@@ -28,7 +26,9 @@ export const Hero: FC = () => {
           </Card>
 
           <Card data-testid="hero-technologies" className="overflow-hidden">
-            <Technologies />
+            <CardHeader>
+              <Technologies />
+            </CardHeader>
           </Card>
 
           <Card data-testid="hero-job-history" className="overflow-hidden">
