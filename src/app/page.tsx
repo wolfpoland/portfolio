@@ -1,7 +1,7 @@
 import { ParticlesWrapper } from "patryk/components/particles-wrapper";
 import { Metadata } from "next";
 import { Bio } from "patryk/components/bio";
-import { Hero } from "patryk/components/hero";
+import { Hero } from "patryk/components/hero/hero";
 import { Navbar } from "patryk/components/navbar";
 
 export const metadata: Metadata = {
