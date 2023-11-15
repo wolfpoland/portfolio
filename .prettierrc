@@ -1,1 +1,9 @@
-{}
+{
+  "importOrder": ["^react/(.*)$", "^patryk/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": [
+    "prettier-plugin-organize-imports",
+    "@trivago/prettier-plugin-sort-imports"
+  ]
+}
