@@ -1,5 +1,10 @@
 {
-  "importOrder": ["^react/(.*)$", "^patryk/(.*)$", "^[./]"],
+  "importOrder": [
+    "^react/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^patryk/(.*)$",
+    "^[./]"
+  ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "plugins": [
