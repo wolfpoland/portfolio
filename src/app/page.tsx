@@ -1,8 +1,9 @@
-import { ParticlesWrapper } from "patryk/components/particles-wrapper";
 import { Metadata } from "next";
+
 import { Bio } from "patryk/components/bio";
 import { Hero } from "patryk/components/hero/hero";
 import { Navbar } from "patryk/components/navbar";
+import { ParticlesWrapper } from "patryk/components/particles-wrapper";
 
 export const metadata: Metadata = {
   title: "Patryk Krasuski - Frontend Developer",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <div className="mt-[120px] md:mt-0 relative md:absolute w-screen h-min-[680px] overflow-x-hidden">
+      <div className="mt-[120px] md:mt-0 relative md:absolute w-full h-min-[680px] overflow-x-hidden">
         <section about="hero" data-testid="hero">
           <Hero />
         </section>
