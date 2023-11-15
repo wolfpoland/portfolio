@@ -9,14 +9,14 @@ export const Bio = () => {
       className="w-full h-[100vh] 3xl:h-[80vh] pb-[50px] relative grid grid-cols-1 md:grid-cols-2"
     >
       <div className="hidden md:w-full md:h-full md:block xl:flex xl:items-start xl:justify-end">
-        <Image
+        {/* <Image
           data-testid="bio-image"
           className="z-10 object-cover object-center sticky top-[100px] w-full h-full 2xl:w-auto 2xl:h-auto "
           src="/patryk.webp"
           alt="That's me"
           width={886}
           height={904}
-        />
+        /> */}
       </div>
       <div className="w-full 3xl:h-[49vh] h-full pb-[50px] mt-[100px] md:mt-0 flex flex-col justify-start items-center bg-muted text-accent-foreground">
         <div data-testid="bio-description" className="container pt-20">
