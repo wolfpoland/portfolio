@@ -18,7 +18,7 @@ export const Bio = () => {
           height={904}
         />
       </div>
-      <div className="w-full 3xl:h-[49vh] h-full pb-[50px] mt-[100px] md:mt-0 flex flex-col justify-start items-center bg-muted text-accent-foreground">
+      <div className="w-full 3xl:h-min h-full pb-[50px] mt-[100px] md:mt-0 flex flex-col justify-start items-center bg-muted text-accent-foreground">
         <div data-testid="bio-description" className="container pt-20">
           <h2 className="text-7xl mb-10">My name is Patryk Krasuski</h2>
           <p className="text-4xl mb-10">
