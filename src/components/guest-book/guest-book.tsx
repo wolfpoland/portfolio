@@ -1,4 +1,5 @@
 import { GuestbookControls } from "patryk/components/guest-book/guest-book-controls";
+import { GuestbookEntry } from "patryk/components/guest-book/guest-book-entry";
 import { GuestBookEntry } from "patryk/components/guest-book/model/guest-book-entry";
 import {
   Card,
@@ -7,39 +8,30 @@ import {
   CardTitle,
 } from "patryk/components/ui/card";
 import { redis } from "patryk/redis";
+import { EntriesState } from "patryk/utils/state/entries-state";
 
 async function sendEntry(entry: GuestBookEntry) {
   "use server";
 
-  const rawEntries: { entries: Array<GuestBookEntry> } | Array<null> =
-    (await redis.hgetall<{ entries: Array<GuestBookEntry> }>(
-      "guest-book-entries2",
-    )) ?? [];
+  const entriesState = EntriesState.getInstance();
 
-  console.log("entry", entry);
+  entriesState.addEntry(entry);
 
-  const entries = rawEntries.entries;
-
-  if (!Array.isArray(entries)) {
-    return;
-  }
-
-  entries.push({
-    ...entry,
-    approved: false,
+  await redis.hset(`guest-book-entries2`, {
+    entries: entriesState.getEntries(),
   });
-  console.log("send enter");
-
-  await redis.hset(`guest-book-entries2`, { entries });
 }
 
 export const Guestbook = async () => {
-  const rawEntries: { entries: Array<GuestBookEntry> } | Array<null> =
-    (await redis.hgetall<{ entries: Array<GuestBookEntry> }>(
-      "guest-book-entries2",
-    )) ?? [];
+  const entries: Array<GuestBookEntry> =
+    (
+      await redis.hgetall<{ entries: Array<GuestBookEntry> }>(
+        "guest-book-entries2",
+      )
+    )?.entries ?? [];
 
-  console.log("entries", rawEntries);
+  const entriesState = EntriesState.getInstance();
+  entriesState.setEntries(entries);
 
   return (
     <div className="container my-[10vh] mt-[200px] h-[600px] w-full overflow-hidden bg-primary-foreground p-10">
@@ -52,12 +44,11 @@ export const Guestbook = async () => {
             className="h-[70%] w-full overflow-y-auto overflow-x-hidden"
             data-testid="guestbook-entries"
           >
-            {/* {isArray(rawEntries.entries) &&
-              rawEntries.entries
-                .filter((entry) => entry.approved)
-                .map((entry: GuestBookEntry, index) => (
-                  <GuestbookEntry entry={entry} key={index} />
-                ))} */}
+            {entries
+              .filter((entry) => entry.approved)
+              .map((entry: GuestBookEntry, index) => (
+                <GuestbookEntry entry={entry} key={index} />
+              ))}
           </div>
           <div className="relative h-[30%] w-full">
             <GuestbookControls sendEntry={sendEntry} />
