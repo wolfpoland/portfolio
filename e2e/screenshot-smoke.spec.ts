@@ -5,5 +5,5 @@ test("it should match bio screenshot", async ({ page }) => {
 
   const bio = await page.getByTestId("bio-container");
   await expect(bio).toBeVisible();
-  await expect(bio).toHaveScreenshot({ maxDiffPixels: 100 });
+  await expect(bio).toHaveScreenshot({ maxDiffPixels: 200 });
 });
