@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import NextAuth, { AuthOptions, User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { redis } from "patryk/redis";
+import { KVStorage } from "patryk/redis";
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -15,7 +15,7 @@ export const authOptions: AuthOptions = {
           return null;
         }
 
-        const key = await redis.get<string>("auth-key");
+        const key = await KVStorage.get<string>("auth-key");
 
         if (!key) {
           return null;

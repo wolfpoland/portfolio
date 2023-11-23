@@ -7,4 +7,10 @@ export const ClientCalls = {
       body: JSON.stringify(entry),
     });
   },
+  addEntries: (entry: GuestBookEntry) => {
+    fetch("/api/add-entries", {
+      method: "POST",
+      body: JSON.stringify(entry),
+    });
+  }
 };

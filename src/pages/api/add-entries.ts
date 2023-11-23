@@ -1,8 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { GuestBookEntry } from "../../components/guest-book/model/guest-book-entry";
+
 import { KVStorage } from "../../redis";
 
-export default async function updateEntries(
+export default async function addEntries(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
@@ -15,8 +16,7 @@ export default async function updateEntries(
       )
     )?.entries ?? [];
 
-  const index = entries.findIndex((e) => e.id === entry.id);
-  entries[index] = entry;
+  entries.push(entry);
 
   await KVStorage.hset("guest-book-entries2", { entries });
 

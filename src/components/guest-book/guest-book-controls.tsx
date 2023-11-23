@@ -1,21 +1,15 @@
 "use client";
 
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { GuestBookEntry } from "patryk/components/guest-book/model/guest-book-entry";
 import { Button } from "patryk/components/ui/button";
 import { Input } from "patryk/components/ui/input";
 import { Label } from "patryk/components/ui/label";
 import { Textarea } from "patryk/components/ui/textarea";
 import { DateUilService } from "patryk/utils/date";
+import { sendEntry } from "patryk/components/guest-book/send-entry";
 
-export type GuestbookControlsProps = {
-  sendEntry: (entry: GuestBookEntry) => void;
-};
-
-export const GuestbookControls: FC<GuestbookControlsProps> = ({
-  sendEntry,
-}) => {
+export const GuestbookControls = () => {
   const [textAreaValue, setTextAreaValue] = useState("");
   const [authorValue, setAuthorValue] = useState("Annonymous");
 
@@ -44,9 +38,7 @@ export const GuestbookControls: FC<GuestbookControlsProps> = ({
   };
 
   const onSendClick = () => {
-    console.log("onSendClick");
-    if (textAreaValue.trim()?.length) {
-      console.log(textAreaValue);
+    if (textAreaValue.trim()?.length) {;
       sendEntry({
         id: crypto.randomUUID(),
         author: authorValue.trim() ? authorValue : "Annonymous",
@@ -65,6 +57,7 @@ export const GuestbookControls: FC<GuestbookControlsProps> = ({
         <Input
           type="text"
           id="author"
+          data-testid="guestbook-author"
           placeholder="Author"
           onChange={onAuthorChange}
           value={authorValue}
@@ -72,12 +65,14 @@ export const GuestbookControls: FC<GuestbookControlsProps> = ({
       </div>
       <div className="relative w-full">
         <Textarea
+          data-testid="guestbook-textarea"
           value={textAreaValue}
           onChange={onTextAreaChange}
           className="resize-none whitespace-pre-line"
           placeholder="Write something nice!"
         />
         <Button
+          data-testid="guestbook-send-button"
           disabled={!textAreaValue.trim()?.length}
           onClick={onSendClick}
           className="absolute bottom-0 right-3  top-[10%] h-[80%]"

@@ -7,25 +7,13 @@ import {
   CardHeader,
   CardTitle,
 } from "patryk/components/ui/card";
-import { redis } from "patryk/redis";
+import { KVStorage } from "patryk/redis";
 import { EntriesState } from "patryk/utils/state/entries-state";
-
-async function sendEntry(entry: GuestBookEntry) {
-  "use server";
-
-  const entriesState = EntriesState.getInstance();
-
-  entriesState.addEntry(entry);
-
-  await redis.hset(`guest-book-entries2`, {
-    entries: entriesState.getEntries(),
-  });
-}
 
 export const Guestbook = async () => {
   const entries: Array<GuestBookEntry> =
     (
-      await redis.hgetall<{ entries: Array<GuestBookEntry> }>(
+      await KVStorage.hgetall<{ entries: Array<GuestBookEntry> }>(
         "guest-book-entries2",
       )
     )?.entries ?? [];
@@ -34,7 +22,10 @@ export const Guestbook = async () => {
   entriesState.setEntries(entries);
 
   return (
-    <div className="container my-[10vh] mt-[200px] h-[600px] w-full overflow-hidden bg-primary-foreground p-10">
+    <div
+      data-testid="guestbook-container"
+      className="container my-[10vh] mt-[200px] h-[600px] w-full overflow-hidden bg-primary-foreground p-10"
+    >
       <Card className="h-full w-full">
         <CardHeader className="h-[15%]">
           <CardTitle>Guestbook</CardTitle>
@@ -51,7 +42,7 @@ export const Guestbook = async () => {
               ))}
           </div>
           <div className="relative h-[30%] w-full">
-            <GuestbookControls sendEntry={sendEntry} />
+            <GuestbookControls />
           </div>
         </CardContent>
       </Card>
