@@ -59,4 +59,4 @@ class TestStorage extends AbstractStorage {
 }
 
 export const KVStorage =
-  process.env.NODE_ENV === "test" ? new TestStorage() : new RedisStorage();
+process.env.E2E === "true" ? new TestStorage() : new RedisStorage();

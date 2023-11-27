@@ -13,5 +13,5 @@ test("it should match guest book screenshot", async ({ page }) => {
 
   const guestBook = await page.getByTestId("guestbook-container");
   await expect(guestBook).toBeVisible();
-  await expect(guestBook).toHaveScreenshot({ maxDiffPixels: 100 });
+  await expect(guestBook).toHaveScreenshot({ maxDiffPixels: 100, omitBackground: true });
 });
