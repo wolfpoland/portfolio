@@ -7,14 +7,15 @@ import {
   CardHeader,
   CardTitle,
 } from "patryk/components/ui/card";
-import { KVStorage } from "patryk/redis";
+import { KVStorage } from "patryk/utils/redis/redis";
+import { RedisKeys } from "patryk/utils/redis/redis-keys";
 import { EntriesState } from "patryk/utils/state/entries-state";
 
 export const Guestbook = async () => {
   const entries: Array<GuestBookEntry> =
     (
       await KVStorage.hgetall<{ entries: Array<GuestBookEntry> }>(
-        "guest-book-entries2",
+        RedisKeys.ENTRIES,
       )
     )?.entries ?? [];
 

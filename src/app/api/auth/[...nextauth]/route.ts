@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import NextAuth, { AuthOptions, User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { KVStorage } from "patryk/redis";
+import { KVStorage } from "patryk/utils/redis/redis";
 
 export const authOptions: AuthOptions = {
   providers: [

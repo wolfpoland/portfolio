@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { RedisKeys } from "patryk/utils/redis/redis-keys";
 import { GuestBookEntry } from "../../components/guest-book/model/guest-book-entry";
-import { KVStorage } from "../../redis";
+import { KVStorage } from "../../utils/redis/redis";
 
 export default async function updateEntries(
   req: NextApiRequest,
@@ -11,14 +12,14 @@ export default async function updateEntries(
   const entries: Array<GuestBookEntry> =
     (
       await KVStorage.hgetall<{ entries: Array<GuestBookEntry> }>(
-        "guest-book-entries2",
+        RedisKeys.ENTRIES,
       )
     )?.entries ?? [];
 
   const index = entries.findIndex((e) => e.id === entry.id);
   entries[index] = entry;
 
-  await KVStorage.hset("guest-book-entries2", { entries });
+  await KVStorage.hset(RedisKeys.ENTRIES, { entries });
 
   res.status(200).json({ message: "ok" });
 }
