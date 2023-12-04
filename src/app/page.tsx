@@ -19,7 +19,7 @@ export default function Home() {
         <section about="hero" data-testid="hero">
           <Hero />
         </section>
-        <ParticlesWrapper />
+        {process.env.E2E === "true" ? null : <ParticlesWrapper />}
       </div>
       <div className="block h-0 w-full md:visible md:h-[70vh]"></div>
       <Navbar />

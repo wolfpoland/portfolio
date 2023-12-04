@@ -73,10 +73,6 @@ export const ParticlesWrapper = memo(() => {
     await loadSlim(engine);
   }, []);
 
-  if(process.env.E2E === "true") {
-    return null;
-  }
-
   return (
     <Particles
       className="z-0"
