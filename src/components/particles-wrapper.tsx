@@ -73,7 +73,7 @@ export const ParticlesWrapper = memo(() => {
     await loadSlim(engine);
   }, []);
 
-  if(process.env.E2E = "true") {
+  if(process.env.E2E === "true") {
     return null;
   }
 

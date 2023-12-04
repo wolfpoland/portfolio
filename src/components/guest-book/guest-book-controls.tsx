@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { Button } from "patryk/components/ui/button";
 import { Input } from "patryk/components/ui/input";
@@ -12,6 +12,19 @@ import { sendEntry } from "patryk/components/guest-book/send-entry";
 export const GuestbookControls = () => {
   const [textAreaValue, setTextAreaValue] = useState("");
   const [authorValue, setAuthorValue] = useState("Annonymous");
+
+  const onSendClick = useCallback(() => {
+    if (textAreaValue.trim()?.length) {;
+      sendEntry({
+        id: crypto.randomUUID(),
+        author: authorValue.trim() ? authorValue : "Annonymous",
+        text: textAreaValue,
+        date: DateUilService.getSimpleStringDate(new Date()),
+        approved: false,
+      });
+      setTextAreaValue("");
+    }
+  }, [authorValue, textAreaValue]);
 
   useEffect(() => {
     const listenerCallback = (e: KeyboardEvent) => {
@@ -27,7 +40,7 @@ export const GuestbookControls = () => {
     return () => {
       document.removeEventListener("keydown", listenerCallback);
     };
-  }, []);
+  }, [onSendClick]);
 
   const onTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextAreaValue(e.target.value);
@@ -35,19 +48,6 @@ export const GuestbookControls = () => {
 
   const onAuthorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAuthorValue(e.target.value);
-  };
-
-  const onSendClick = () => {
-    if (textAreaValue.trim()?.length) {;
-      sendEntry({
-        id: crypto.randomUUID(),
-        author: authorValue.trim() ? authorValue : "Annonymous",
-        text: textAreaValue,
-        date: DateUilService.getSimpleStringDate(new Date()),
-        approved: false,
-      });
-      setTextAreaValue("");
-    }
   };
 
   return (

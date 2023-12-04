@@ -12,5 +12,5 @@ export const ClientCalls = {
       method: "POST",
       body: JSON.stringify(entry),
     });
-  }
+  },
 };
