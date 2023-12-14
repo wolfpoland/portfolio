@@ -11,7 +11,6 @@ import { KVStorage } from "patryk/utils/redis/redis";
 import { RedisKeys } from "patryk/utils/redis/redis-keys";
 import { EntriesState } from "patryk/utils/state/entries-state";
 
-
 export const Guestbook = async () => {
   const entries: Array<GuestBookEntry> =
     (
@@ -26,9 +25,9 @@ export const Guestbook = async () => {
   return (
     <div
       data-testid="guestbook-container"
-      className="container my-[10vh] mt-[200px] h-[600px] w-full overflow-hidden bg-primary-foreground p-10"
+      className="my-[100px] flex h-[630px] w-full justify-center overflow-hidden bg-primary-foreground p-10"
     >
-      <Card className="h-full w-full">
+      <Card className="h-[525px] w-[1000px]">
         <CardHeader className="h-[15%]">
           <CardTitle>Guestbook</CardTitle>
         </CardHeader>

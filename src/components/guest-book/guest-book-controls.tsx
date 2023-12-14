@@ -1,28 +1,31 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
+import { sendEntry } from "patryk/components/guest-book/send-entry";
 import { Button } from "patryk/components/ui/button";
 import { Input } from "patryk/components/ui/input";
 import { Label } from "patryk/components/ui/label";
 import { Textarea } from "patryk/components/ui/textarea";
 import { DateUilService } from "patryk/utils/date";
-import { sendEntry } from "patryk/components/guest-book/send-entry";
 
 export const GuestbookControls = () => {
   const [textAreaValue, setTextAreaValue] = useState("");
   const [authorValue, setAuthorValue] = useState("Annonymous");
+  const shadowBan = useRef(false);
 
   const onSendClick = useCallback(() => {
-    if (textAreaValue.trim()?.length) {;
+    if (textAreaValue.trim()?.length) {
       sendEntry({
         id: crypto.randomUUID(),
         author: authorValue.trim() ? authorValue : "Annonymous",
         text: textAreaValue,
         date: DateUilService.getSimpleStringDate(new Date()),
         approved: false,
+        shadowBan: shadowBan.current,
       });
       setTextAreaValue("");
+      shadowBan.current = true;
     }
   }, [authorValue, textAreaValue]);
 
@@ -52,7 +55,7 @@ export const GuestbookControls = () => {
 
   return (
     <>
-      <div className="w-min-[200px] mb-2 w-[25%]">
+      <div className="w-min-[200px] mb-2 w-[50%] md:w-[25%]">
         <Label htmlFor="author">Author</Label>
         <Input
           type="text"
@@ -75,7 +78,7 @@ export const GuestbookControls = () => {
           data-testid="guestbook-send-button"
           disabled={!textAreaValue.trim()?.length}
           onClick={onSendClick}
-          className="absolute bottom-0 right-3  top-[10%] h-[80%]"
+          className="absolute bottom-0 right-3 top-[10%] h-[80%]"
         >
           Send
         </Button>

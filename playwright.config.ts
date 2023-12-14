@@ -23,7 +23,7 @@ export default defineConfig({
   reporter: "html",
   ignoreSnapshots: false,
   snapshotDir: "./e2e/__snapshots__",
-  updateSnapshots: 'missing',
+  updateSnapshots: "missing",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -42,17 +42,17 @@ export default defineConfig({
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
-  //   {
-  //     name: "Desktop-Chrome",
-  //     use: {
-  //         browserName: "chromium",
-  //         channel: "chrome",
-  //         viewport: { width: 1920, height: 1080 },
-  //         launchOptions: {
-  //             args: ["--disable-web-security"],
-  //         },
-  //     },
-  // },
+    // {
+    //   name: "Desktop-Chrome",
+    //   use: {
+    //     browserName: "chromium",
+    //     channel: "chrome",
+    //     viewport: { width: 1440, height: 673 },
+    //     launchOptions: {
+    //       args: ["--disable-web-security"],
+    //     },
+    //   },
+    // },
 
     // {
     //   name: "firefox",

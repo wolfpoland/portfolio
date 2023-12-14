@@ -62,6 +62,7 @@ it("should pass the author and text to the sendEntry function", async () => {
     author: "test",
     date: "12-09-2021",
     id: "test",
+    shadowBan: false,
     text: "test",
   } as GuestBookEntry);
 

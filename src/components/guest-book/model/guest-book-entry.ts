@@ -1,7 +1,8 @@
 export type GuestBookEntry = {
-    id: string;
-    text: string;
-    author: string;
-    date: string;
-    approved: boolean;
+  id: string;
+  text: string;
+  author: string;
+  date: string;
+  approved: boolean;
+  shadowBan: boolean;
 };

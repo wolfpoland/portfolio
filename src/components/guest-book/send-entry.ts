@@ -1,11 +1,11 @@
-'use client';
+"use client";
 import { ClientCalls } from "patryk/api/client";
 import { GuestBookEntry } from "patryk/components/guest-book/model/guest-book-entry";
 import { toast } from "patryk/components/ui/use-toast";
 
 export async function sendEntry(entry: GuestBookEntry) {
   try {
-    await ClientCalls.addEntries(entry);
+    !entry.shadowBan && (await ClientCalls.addEntries(entry));
   } catch (e) {
     toast({
       title: "Something went wrong",
