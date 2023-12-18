@@ -1,5 +1,9 @@
 "use client";
-import { FC, memo, ReactNode, useEffect, useState } from "react";
+import { Mail, Phone, PhoneOutgoing, Send } from "lucide-react";
+import { signOut, useSession } from "next-auth/react";
+import { ClipboardService } from "patryk/components/clipboard/clipboard-service";
+import { EmailService } from "patryk/components/email/email-service";
+import { TelephoneService } from "patryk/components/telephone/telephone-service";
 import {
   CommandDialog,
   CommandEmpty,
@@ -8,12 +12,9 @@ import {
   CommandItem,
   CommandList,
 } from "patryk/components/ui/command";
-import { Mail, Phone, PhoneOutgoing, Send } from "lucide-react";
-import { ClipboardService } from "patryk/components/clipboard/clipboard-service";
-import { TelephoneService } from "patryk/components/telephone/telephone-service";
-import { EmailService } from "patryk/components/email/email-service";
-import { SiBitbucket, SiGithub, SiLinkedin } from "react-icons/si";
 import { UtilityService } from "patryk/utils/utility";
+import { FC, ReactNode, memo, useEffect, useState } from "react";
+import { SiBitbucket, SiGithub, SiLinkedin } from "react-icons/si";
 
 export type CommandActionsProps = {
   children: ReactNode;
@@ -22,12 +23,13 @@ export type CommandActionsProps = {
 export const CommandActions: FC<CommandActionsProps> = memo(({ children }) => {
   const [open, setOpen] = useState(false);
   const [macOs, setIsMacOs] = useState<boolean | undefined>();
+  const { status } = useSession();
 
   useEffect(() => {
     setIsMacOs(UtilityService.detectOs(window) === "Macintosh");
     const down = (e: KeyboardEvent) => {
       const conditions = {
-        macos: (e.key === "k" || e.key === "K") && (e.metaKey),
+        macos: (e.key === "k" || e.key === "K") && e.metaKey,
         other: (e.key === "k" || e.key === "K") && e.ctrlKey,
       };
 
@@ -83,12 +85,16 @@ export const CommandActions: FC<CommandActionsProps> = memo(({ children }) => {
     );
   };
 
+  const handleLogout = () => {
+    signOut();
+  }
+
   return (
     <>
       {macOs !== undefined && (
         <p
           data-testid="command-open-info"
-          className="z-50 select-none p-1 px-2 rounded-lg border opacity-75  bg-primary-foreground fixed bottom-3 right-3 text-sm text-muted-foreground"
+          className="fixed bottom-3 right-3 z-50 select-none rounded-lg border  bg-primary-foreground p-1 px-2 text-sm text-muted-foreground opacity-75"
         >
           Press{" "}
           <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
@@ -141,6 +147,13 @@ export const CommandActions: FC<CommandActionsProps> = memo(({ children }) => {
               <span>LinkedIn</span>
             </CommandItem>
           </CommandGroup>
+          {status === "authenticated" && (
+            <CommandGroup heading="Account">
+              <CommandItem onSelect={handleLogout}>
+                <span>Logout</span>
+              </CommandItem>
+            </CommandGroup>
+          )}
         </CommandList>
       </CommandDialog>
     </>

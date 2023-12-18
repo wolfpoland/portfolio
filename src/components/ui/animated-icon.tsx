@@ -30,7 +30,7 @@ export const AnimatedIcon: FC<AnimatedIconProps> = memo(({ children, testId }) =
     }, 1000);
 
     return () => clearInterval(finishInterval);
-  }, []);
+  }, [props.scale, set]);
 
   return (
     <animated.div

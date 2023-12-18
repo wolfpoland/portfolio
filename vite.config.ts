@@ -7,7 +7,7 @@ const configuration: UserConfig = {
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      'patryk': path.resolve(__dirname, './src'),
       $lib: path.resolve(__dirname, './src/lib'),
       $components: path.resolve(__dirname, './src/components'),
     },
