@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import { Bio } from "patryk/components/bio";
+import { Guestbook } from "patryk/components/guest-book/guest-book";
 import { Hero } from "patryk/components/hero/hero";
 import { Navbar } from "patryk/components/navbar";
 import { ParticlesWrapper } from "patryk/components/particles-wrapper";
@@ -14,18 +15,22 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <div className="mt-[120px] md:mt-0 relative md:absolute w-full h-min-[680px] overflow-x-hidden">
+      <div className="h-min-[680px] relative mt-[120px] w-full overflow-x-hidden md:absolute md:mt-0">
         <section about="hero" data-testid="hero">
           <Hero />
         </section>
-        <ParticlesWrapper />
+        {process.env.E2E === "true" ? null : <ParticlesWrapper />}
       </div>
-      <div className="block h-0 md:visible md:h-[70vh] w-full"></div>
+      <div className="block h-0 w-full md:visible md:h-[70vh]"></div>
       <Navbar />
-      <div className="fixed md:sticky top-0 w-full h-[100px] bg-primary-foreground z-20 opacity-70"></div>
+      <div className="fixed top-0 z-20 h-[100px] w-full bg-primary-foreground opacity-70 md:sticky"></div>
       <section data-testid="bio" about="bio">
         <Bio />
       </section>
+      <section data-testid="guestbook" about="guestbook">
+        <Guestbook />
+      </section>
+      <div className="h-[10vh] w-full"></div>
     </>
   );
 }

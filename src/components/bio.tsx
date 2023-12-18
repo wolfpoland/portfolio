@@ -6,28 +6,32 @@ export const Bio = () => {
   return (
     <div
       data-testid="bio-container"
-      className="w-full h-[100vh] 3xl:h-[80vh] pb-[50px] relative grid grid-cols-1 md:grid-cols-2"
+      className="relative grid h-full w-full grid-cols-1 pb-[50px] md:grid-cols-2 3xl:h-[80vh]"
     >
-      <div className="hidden md:w-full md:h-full md:block xl:flex xl:items-start xl:justify-end">
+      <div className="hidden md:block md:h-full md:w-full xl:flex xl:items-start xl:justify-end">
         <Image
           data-testid="bio-image"
-          className="z-10 object-cover object-center sticky top-[100px] w-full h-full 2xl:w-auto 2xl:h-auto "
+          className="sticky top-[100px] z-10 h-full w-full object-cover object-center 2xl:h-auto 2xl:w-auto "
           src="/patryk.webp"
           alt="That's me"
+          fetchPriority="low"
+          loading="lazy"
           width={886}
           height={904}
+          placeholder="empty"
+          priority={false}
         />
       </div>
-      <div className="w-full 3xl:h-min h-full pb-[50px] mt-[100px] md:mt-0 flex flex-col justify-start items-center bg-muted text-accent-foreground">
+      <div className="mt-[100px] flex h-full w-full flex-col items-center justify-start bg-muted pb-[50px] text-accent-foreground md:mt-0 3xl:h-min">
         <div data-testid="bio-description" className="container pt-20">
-          <h2 className="text-7xl mb-10">My name is Patryk Krasuski</h2>
-          <p className="text-4xl mb-10">
+          <h2 className="mb-10 text-7xl">My name is Patryk Krasuski</h2>
+          <p className="mb-10 text-4xl">
             I am currently working at BigPicture (Appfire) as a front-end
             developer.
             <br />I am open to job offers.
           </p>
 
-          <p className="text-2xl mb-5">
+          <p className="mb-5 text-2xl">
             Currently I am 29 years old and have{" "}
             {DateUilService.getElapsedDate(new Date("2018-04-01"), new Date())}{" "}
             of experience as a front-end developer, primarily focusing on
