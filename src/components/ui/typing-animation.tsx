@@ -1,15 +1,16 @@
 "use client";
-import { useSpring, animated } from "@react-spring/web";
-import React, { useState, useEffect, memo, FC } from "react";
+import { animated, useSpring } from "@react-spring/web";
+import { FC, memo, useEffect, useState } from "react";
 
 type TypingAnimationProps = {
   text: string;
   speed?: number;
   dataTestId?: string;
+  e2e?: boolean;
 };
 
 export const TypingAnimation: FC<TypingAnimationProps> = memo(
-  ({ text = "", speed = 100, dataTestId }) => {
+  ({ text = "", speed = 100, dataTestId, e2e }) => {
     const [displayedText, setDisplayedText] = useState("");
 
     useEffect(() => {
@@ -27,10 +28,17 @@ export const TypingAnimation: FC<TypingAnimationProps> = memo(
       from: { opacity: 0 },
     });
 
+    if (e2e)
+      return (
+        <div className="mb-1 h-[24px]" data-testid={dataTestId}>
+          {text}
+        </div>
+      );
+
     return (
       <animated.div
         data-testid={dataTestId}
-        className="h-[24px] mb-1"
+        className="mb-1 h-[24px]"
         style={props}
       >
         {displayedText}
