@@ -32,7 +32,7 @@ export const Bio = () => {
 
           <Image
             data-testid="bio-image"
-            src="/patryk-3.jpeg"
+            src="/patryk.webp"
             alt="That's me"
             fetchPriority="low"
             loading="lazy"
