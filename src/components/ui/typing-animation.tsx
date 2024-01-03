@@ -6,10 +6,11 @@ type TypingAnimationProps = {
   text: string;
   speed?: number;
   dataTestId?: string;
+  e2e?: boolean;
 };
 
 export const TypingAnimation: FC<TypingAnimationProps> = memo(
-  ({ text = "", speed = 100, dataTestId }) => {
+  ({ text = "", speed = 100, dataTestId, e2e }) => {
     const [displayedText, setDisplayedText] = useState("");
 
     useEffect(() => {
@@ -27,7 +28,7 @@ export const TypingAnimation: FC<TypingAnimationProps> = memo(
       from: { opacity: 0 },
     });
 
-    if (process.env.E2E === "true")
+    if (e2e)
       return (
         <div className="mb-1 h-[24px]" data-testid={dataTestId}>
           {text}

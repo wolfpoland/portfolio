@@ -17,6 +17,7 @@ export const Hero = () => {
                 <TypingAnimation
                   dataTestId="hero-contact-text"
                   text="Contact with me"
+                  e2e={process.env.E2E === "true"}
                 />
               </CardTitle>
 
@@ -38,7 +39,10 @@ export const Hero = () => {
           <Card data-testid="hero-job-offers" className="overflow-hidden">
             <CardHeader>
               <CardTitle>
-                <TypingAnimation text="I am open to job offers" />
+                <TypingAnimation
+                  text="I am open to job offers"
+                  e2e={process.env.E2E === "true"}
+                />
               </CardTitle>
             </CardHeader>
           </Card>
