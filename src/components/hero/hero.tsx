@@ -7,9 +7,9 @@ import { TypingAnimation } from "patryk/components/ui/typing-animation";
 
 export const Hero = () => {
   return (
-    <div className="w-full h-full overflow-hidden sm:container z-10 grid grid-cols-1 md:grid-cols-2">
-      <div className="w-full h-0 md:h-screen none md:block z-10 flex flex-col justify-between items-center row-span-1 "></div>
-      <div className="w-full h-full rounded-lg border flex-col grid justify-center bg-muted mb-5 md:mb-0">
+    <div className="z-10 grid h-full w-full grid-cols-1 overflow-hidden sm:container md:grid-cols-2">
+      <div className="none z-10 row-span-1 flex h-0 w-full flex-col items-center justify-between md:block md:h-screen "></div>
+      <div className="mb-5 grid h-full w-full flex-col justify-center rounded-lg border bg-muted text-muted-foreground md:mb-0">
         <div className="flex flex-col justify-center p-3 ">
           <Card data-testid="hero-contact-with-me" className="overflow-hidden">
             <CardHeader>
@@ -17,6 +17,7 @@ export const Hero = () => {
                 <TypingAnimation
                   dataTestId="hero-contact-text"
                   text="Contact with me"
+                  e2e={process.env.E2E === "true"}
                 />
               </CardTitle>
 
@@ -38,7 +39,10 @@ export const Hero = () => {
           <Card data-testid="hero-job-offers" className="overflow-hidden">
             <CardHeader>
               <CardTitle>
-                <TypingAnimation text="I am open to job offers" />
+                <TypingAnimation
+                  text="I am open to job offers"
+                  e2e={process.env.E2E === "true"}
+                />
               </CardTitle>
             </CardHeader>
           </Card>

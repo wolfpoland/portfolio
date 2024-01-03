@@ -12,8 +12,8 @@ export default async function Admin() {
   const session = await getServerSession(authOptions);
   const entriesState = EntriesState.getInstance();
   let entries: Array<GuestBookEntry> = [];
-
-  if (!entriesState.isExpired()) {
+  // test
+  if (entriesState.isExpired()) {
     entries =
       (
         await KVStorage.hgetall<{ entries: Array<GuestBookEntry> }>(
