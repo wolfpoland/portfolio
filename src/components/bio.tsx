@@ -18,7 +18,7 @@ export const Bio = () => {
     >
       <div
         className={cn(
-          "container grid h-full grid-cols-12 items-center gap-8 lg:gap-16 xl:gap-24",
+          "grid h-full grid-cols-12 items-center gap-8 sm:container lg:gap-16 xl:gap-24",
         )}
       >
         <div className="relative col-span-6 hidden h-full xl:block">
