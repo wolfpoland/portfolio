@@ -11,6 +11,7 @@ import { cn } from "patryk/utils/utility/utils";
 export const Bio = () => {
   return (
     <div
+      data-testid="bio-container"
       className={cn(
         "relative z-10 h-full w-full bg-secondary py-10 text-secondary-foreground",
       )}
@@ -44,7 +45,10 @@ export const Bio = () => {
              left-1/2 top-1/2 z-10 mx-auto w-full max-w-[366px] -translate-x-1/2 -translate-y-1/2 rounded-full shadow-2xl"
           />
         </div>
-        <div className="col-span-12 flex h-full flex-col items-center justify-center gap-8 xl:col-span-6">
+        <div
+          data-testid="bio-description"
+          className="col-span-12 flex h-full flex-col items-center justify-center gap-8 xl:col-span-6"
+        >
           <Card className="w-full xl:w-[500px] 2xl:w-[700px]">
             <CardHeader>
               <CardTitle className="text-2xl">Commercial Experience</CardTitle>

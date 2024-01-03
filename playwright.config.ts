@@ -40,7 +40,7 @@ export default defineConfig({
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"], viewport: null },
+      use: { ...devices["Desktop Chrome"] },
     },
     // {
     //   name: "Desktop-Chrome",
