@@ -25,15 +25,15 @@ export const Guestbook = async () => {
   return (
     <div
       data-testid="guestbook-container"
-      className="my-[100px] flex h-[630px] w-full justify-center overflow-hidden bg-primary-foreground p-10"
+      className="text-background-foreground my-[100px] flex h-[730px] w-full justify-center overflow-hidden bg-background p-10"
     >
-      <Card className="h-[525px] w-[1000px]">
-        <CardHeader className="h-[15%]">
+      <Card className="h-[576px] w-[1000px] overflow-hidden">
+        <CardHeader className="h-[70px]">
           <CardTitle>Guestbook</CardTitle>
         </CardHeader>
-        <CardContent className="relative z-10 h-[90%] w-full bg-muted">
+        <CardContent className="relative z-10 h-[504px] w-full bg-muted">
           <div
-            className="h-[70%] w-full overflow-y-auto overflow-x-hidden"
+            className="h-[326px] w-full overflow-y-auto overflow-x-hidden"
             data-testid="guestbook-entries"
           >
             {entries
@@ -42,7 +42,7 @@ export const Guestbook = async () => {
                 <GuestbookEntry entry={entry} key={index} />
               ))}
           </div>
-          <div className="relative h-[30%] w-full">
+          <div className="relative h-[144px] w-full">
             <GuestbookControls />
           </div>
         </CardContent>

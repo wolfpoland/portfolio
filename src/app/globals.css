@@ -48,8 +48,11 @@
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 9%;
 
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
+    /*--secondary: 0 0% 14.9%;*/
+    /*--secondary-foreground: 0 0% 98%;*/
+
+    --secondary: 236 8.5% 13.5%;
+    --secondary-foreground: 236 1.7000000000000002% 97.25%;
 
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
