@@ -21,7 +21,7 @@ export default function Home() {
         </section>
         {process.env.E2E === "true" ? null : <ParticlesWrapper />}
       </div>
-      <div className="block h-0 min-h-[100px] w-full md:h-[70vh] md:min-h-[600px]"></div>
+      <div className="block h-0 min-h-[100px] w-full md:h-[70vh] md:min-h-[500px]"></div>
       <Navbar />
       <div className="fixed top-0 z-20 h-[100px] w-full bg-primary-foreground opacity-70 md:sticky"></div>
       <section data-testid="bio" about="bio">

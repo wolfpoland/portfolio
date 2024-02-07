@@ -51,16 +51,16 @@ export const Bio = () => {
         >
           <Card className="w-full xl:w-[500px] 2xl:w-[700px]">
             <CardHeader>
-              <CardTitle className="text-2xl">Commercial Experience</CardTitle>
+              <CardTitle className="text-2xl text-balance">Commercial Experience</CardTitle>
             </CardHeader>
 
             <CardContent>
-              <p className="mb-3 text-xl">
+              <p className="text-pretty mb-3 text-xl">
                 I have a lot of experience as a front-end developer at
                 BigPicture, which is part of Appfire. There, I make interactive
                 Gantt charts using Angular. <br />
               </p>
-              <p className="text-xl">
+              <p className="text-pretty text-xl">
                 After work, I keep learning and working on projects with Next.js
                 and React.
               </p>
@@ -69,13 +69,13 @@ export const Bio = () => {
 
           <Card className="w-full xl:w-[500px] 2xl:w-[700px]">
             <CardHeader>
-              <CardTitle className="text-2xl">
+              <CardTitle className="text-2xl text-balance">
                 Passion for programming
               </CardTitle>
             </CardHeader>
 
             <CardContent>
-              <p className="mb-3 text-xl">
+              <p className="text-pretty mb-3 text-xl">
                 I really enjoy building things. It makes me happy to make
                 something and then see how it turns out. I like trying out new
                 tech stuff.
@@ -84,7 +84,7 @@ export const Bio = () => {
                 ThePrimeagen, Theo, and Dan Abramov.
               </p>
 
-              <p className="mb-3 text-xl">
+              <p className="text-pretty mb-3 text-xl">
                 Programming is definitely not just about making money for me.
               </p>
             </CardContent>
@@ -92,11 +92,13 @@ export const Bio = () => {
 
           <Card className="w-full xl:w-[500px] 2xl:w-[700px]">
             <CardHeader>
-              <CardTitle>Stubbornness in reaching the end goal</CardTitle>
+              <CardTitle className="text-balance">
+                Stubbornness in reaching the end goal
+              </CardTitle>
             </CardHeader>
 
             <CardContent>
-              <p className="mb-3 text-xl">
+              <p className="text-pretty mb-3 text-xl">
                 From my university days to my current job, I have developed a
                 persistent drive to reach the end goal. Whether it was working
                 on projects in ASM during university, using Java, or now
