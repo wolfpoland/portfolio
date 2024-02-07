@@ -30,7 +30,7 @@ export const Technologies = () => {
             </AnimatedIcon>
           </HoverCardTrigger>
           <HoverCardContent>
-            <LevelPresenter className="mb-5" levelCount={5} filledLevels={4} />I
+            <LevelPresenter className="mb-5 text-pretty" levelCount={5} filledLevels={4} />I
             started using Angular for work in 2018, and I&apos;ve been playing
             around with it for fun since 2016. I&apos;ve worked on both big and
             small projects. I wouldn&apos;t say I&apos;m a master at it, though,
@@ -44,7 +44,7 @@ export const Technologies = () => {
             </AnimatedIcon>
           </HoverCardTrigger>
           <HoverCardContent>
-            <LevelPresenter className="mb-5" levelCount={5} filledLevels={3} />
+            <LevelPresenter className="mb-5 text-pretty" levelCount={5} filledLevels={3} />
             I&apos;ve been learning React.js on my own since 2018, using my free
             time to get better at it. I haven&apos;t used React.js in a job yet,
             but I&apos;ve been working on a lot of projects with it lately.
@@ -58,7 +58,7 @@ export const Technologies = () => {
             </AnimatedIcon>
           </HoverCardTrigger>
           <HoverCardContent>
-            <LevelPresenter className="mb-5" levelCount={5} filledLevels={2} />
+            <LevelPresenter className="mb-5 text-pretty" levelCount={5} filledLevels={2} />
             I&apos;ve been using Next.js in my personal projects, and I&apos;m
             still learning the ropes. I actually started experimenting with it
             before Server Components came out, but that release really pushed me
@@ -73,7 +73,7 @@ export const Technologies = () => {
             </AnimatedIcon>
           </HoverCardTrigger>
           <HoverCardContent>
-            <LevelPresenter className="mb-5" levelCount={5} filledLevels={3} />I
+            <LevelPresenter className="mb-5 text-pretty" levelCount={5} filledLevels={3} />I
             like RxJs a lot, used it mostly with Angular but not only with it.
           </HoverCardContent>
         </HoverCard>
@@ -84,7 +84,7 @@ export const Technologies = () => {
             </AnimatedIcon>
           </HoverCardTrigger>
           <HoverCardContent>
-            <LevelPresenter className="mb-5" levelCount={5} filledLevels={4} />I
+            <LevelPresenter className="mb-5 text-pretty" levelCount={5} filledLevels={4} />I
             use TypeScript in every project because it&apos;s really helpful for
             me. At my job, we do a lot of object-oriented programming (OOP), so
             I use TypeScript all the time. I&apos;m not yet at the point where I
@@ -100,7 +100,7 @@ export const Technologies = () => {
             </AnimatedIcon>
           </HoverCardTrigger>
           <HoverCardContent>
-            <LevelPresenter className="mb-5" levelCount={5} filledLevels={4} />
+            <LevelPresenter className="mb-5 text-pretty" levelCount={5} filledLevels={4} />
             I&apos;ve been using Redux for quite a while, both at previous jobs
             and in my own projects. Now at work, we have our own way of managing
             state that’s based on the CQRS pattern. But for my personal
@@ -114,7 +114,7 @@ export const Technologies = () => {
             </AnimatedIcon>
           </HoverCardTrigger>
           <HoverCardContent>
-            <LevelPresenter className="mb-5" levelCount={5} filledLevels={3} />
+            <LevelPresenter className="mb-5 text-pretty" levelCount={5} filledLevels={3} />
             I&apos;ve been using Tailwind CSS for a while now, and I know how it
             works pretty well. I use it a lot in my everyday work and also in my
             own projects. I really like it; it’s a very important tool for me.
@@ -127,7 +127,7 @@ export const Technologies = () => {
             </AnimatedIcon>
           </HoverCardTrigger>
           <HoverCardContent>
-            <LevelPresenter className="mb-5" levelCount={5} filledLevels={3} />
+            <LevelPresenter className="mb-5 text-pretty" levelCount={5} filledLevels={3} />
           </HoverCardContent>
         </HoverCard>
         <HoverCard>
