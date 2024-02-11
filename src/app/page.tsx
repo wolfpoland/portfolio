@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <div className="h-min-[680px] relative mt-[120px] w-full overflow-x-hidden md:absolute md:mt-0">
+      <div className="h-min-[680px] relative mt-[120px] w-full overflow-hidden md:absolute md:mt-0">
         <section about="hero" data-testid="hero">
           <Hero />
         </section>

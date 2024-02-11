@@ -1,4 +1,4 @@
-import { type ClassValue, clsx } from "clsx";
+import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -10,7 +10,7 @@ export function isClient(window: Window) {
 }
 
 export function detectOs(window: Window) {
-  'use client'
+  "use client";
   if (!isClient(window)) {
     return "Unknown";
   }
@@ -32,3 +32,5 @@ export function detectOs(window: Window) {
     return "Unknown";
   }
 }
+
+export type DetectOS = ReturnType<typeof detectOs>;
