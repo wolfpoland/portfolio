@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      className={cn("dark h-full w-full antialiased", GeistSans.className)}
+      className={cn("h-full w-full antialiased", GeistSans.className, "dark")}
       lang="en"
       suppressHydrationWarning
     >

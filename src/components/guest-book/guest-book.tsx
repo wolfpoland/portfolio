@@ -27,7 +27,7 @@ export const Guestbook = async () => {
       data-testid="guestbook-container"
       className="text-background-foreground my-[100px] flex h-[730px] w-full justify-center overflow-hidden bg-background sm:p-10"
     >
-      <Card className="h-[576px] w-[1000px] overflow-hidden">
+      <Card className="h-[576px] w-[1000px] overflow-hidden rounded-none sm:rounded-lg">
         <CardHeader className="h-[70px]">
           <CardTitle>Guestbook</CardTitle>
         </CardHeader>
