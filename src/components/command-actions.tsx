@@ -13,7 +13,7 @@ import {
   CommandList,
 } from "patryk/components/ui/command";
 import { UtilityService } from "patryk/utils/utility";
-import { FC, ReactNode, memo, useEffect, useState } from "react";
+import { FC, ReactNode, memo, useEffect, useRef, useState } from "react";
 import { SiBitbucket, SiGithub, SiLinkedin } from "react-icons/si";
 
 export type CommandActionsProps = {
@@ -24,9 +24,12 @@ export const CommandActions: FC<CommandActionsProps> = memo(({ children }) => {
   const [open, setOpen] = useState(false);
   const [macOs, setIsMacOs] = useState<boolean | undefined>();
   const { status } = useSession();
+  const mobile = useRef(false);
 
   useEffect(() => {
-    setIsMacOs(UtilityService.detectOs(window) === "Macintosh");
+    const os = UtilityService.detectOs(window);
+    setIsMacOs(os === "Macintosh");
+    mobile.current = os === "iPhone" || os === "Android";
     const down = (e: KeyboardEvent) => {
       const conditions = {
         macos: (e.key === "k" || e.key === "K") && e.metaKey,
@@ -87,6 +90,10 @@ export const CommandActions: FC<CommandActionsProps> = memo(({ children }) => {
 
   const handleLogout = () => {
     signOut();
+  };
+
+  if (mobile.current) {
+    return children;
   }
 
   return (

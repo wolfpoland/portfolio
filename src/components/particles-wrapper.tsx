@@ -1,5 +1,6 @@
 "use client";
 
+import { useMeasure } from "@uidotdev/usehooks";
 import { memo, useCallback } from "react";
 import Particles from "react-particles";
 import { Engine, ISourceOptions } from "tsparticles-engine";
@@ -14,7 +15,7 @@ const particlesOptions: ISourceOptions = {
       value: "transparent",
     },
   },
-  fpsLimit: 120,
+  fpsLimit: 90,
   interactivity: {
     events: {},
     modes: {
@@ -65,21 +66,33 @@ const particlesOptions: ISourceOptions = {
       value: { min: 1, max: 5 },
     },
   },
+  fullScreen: false,
   detectRetina: true,
 };
 
 export const ParticlesWrapper = memo(() => {
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine);
-  }, []);
+  const [ref, { width }] = useMeasure();
+  const notMobile = width && width > 500;
+  const particlesInit = useCallback(
+    async (engine: Engine) => {
+      if (notMobile) {
+        await loadSlim(engine);
+      }
+    },
+    [width],
+  );
 
   return (
-    <Particles
-      className="z-0"
-      init={particlesInit}
-      id="tsparticles"
-      options={particlesOptions}
-    />
+    <div ref={ref} className="z-0 h-full w-full">
+      {notMobile && (
+        <Particles
+          className="absolute top-0 z-0 h-full w-full"
+          init={particlesInit}
+          id="tsparticles"
+          options={particlesOptions}
+        />
+      )}
+    </div>
   );
 });
 

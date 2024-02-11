@@ -49,13 +49,15 @@ export const Bio = () => {
           data-testid="bio-description"
           className="col-span-12 flex h-full flex-col items-center justify-center gap-8 xl:col-span-6"
         >
-          <Card className="w-full xl:w-[500px] 2xl:w-[700px]">
+          <Card className="w-full rounded-none sm:rounded-lg xl:w-[500px] 2xl:w-[700px]">
             <CardHeader>
-              <CardTitle className="text-2xl text-balance">Commercial Experience</CardTitle>
+              <CardTitle className="text-balance text-2xl">
+                Commercial Experience
+              </CardTitle>
             </CardHeader>
 
             <CardContent>
-              <p className="text-pretty mb-3 text-xl">
+              <p className="mb-3 text-pretty text-xl">
                 I have a lot of experience as a front-end developer at
                 BigPicture, which is part of Appfire. There, I make interactive
                 Gantt charts using Angular. <br />
@@ -67,15 +69,15 @@ export const Bio = () => {
             </CardContent>
           </Card>
 
-          <Card className="w-full xl:w-[500px] 2xl:w-[700px]">
+          <Card className="w-full rounded-none sm:rounded-lg xl:w-[500px] 2xl:w-[700px]">
             <CardHeader>
-              <CardTitle className="text-2xl text-balance">
+              <CardTitle className="text-balance text-2xl">
                 Passion for programming
               </CardTitle>
             </CardHeader>
 
             <CardContent>
-              <p className="text-pretty mb-3 text-xl">
+              <p className="mb-3 text-pretty text-xl">
                 I really enjoy building things. It makes me happy to make
                 something and then see how it turns out. I like trying out new
                 tech stuff.
@@ -84,13 +86,13 @@ export const Bio = () => {
                 ThePrimeagen, Theo, and Dan Abramov.
               </p>
 
-              <p className="text-pretty mb-3 text-xl">
+              <p className="mb-3 text-pretty text-xl">
                 Programming is definitely not just about making money for me.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="w-full xl:w-[500px] 2xl:w-[700px]">
+          <Card className="w-full rounded-none sm:rounded-lg xl:w-[500px] 2xl:w-[700px]">
             <CardHeader>
               <CardTitle className="text-balance">
                 Stubbornness in reaching the end goal
@@ -98,7 +100,7 @@ export const Bio = () => {
             </CardHeader>
 
             <CardContent>
-              <p className="text-pretty mb-3 text-xl">
+              <p className="mb-3 text-pretty text-xl">
                 From my university days to my current job, I have developed a
                 persistent drive to reach the end goal. Whether it was working
                 on projects in ASM during university, using Java, or now
